@@ -1,0 +1,43 @@
+.background {
+    background-image: linear-gradient(to right, #FF70A6, #FF9770, #FFD670, #E9FF70);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.authContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 65vh;
+    width: 45vw;
+    border-radius: 10px;
+    box-shadow: -2px 2px 10px #403D39, 6px 2px 10px #403D39;
+}
+
+.winkIcon {
+    font-size: 8em;
+}
+
+.heloText {
+    font-size: 6em;
+}
+
+.inputBox {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    width: 225px;
+}
+
+.buttons {
+    margin: 5px 30px;
+    height: 40px;
+    padding: 0 20px;
+    background: #403D39;
+    color: white;
+}

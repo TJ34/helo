@@ -9,6 +9,8 @@ const {json} = require("body-parser");
 
 app.use(json());
 
+const controller = require(`${__dirname}/controller`);
+
 // app.use(
 //     session({
 //         secret: process.env.SESSION_SECRET,
@@ -68,5 +70,9 @@ massive(process.env.CONNECTION_STRING).then(dbInstance => {
 // });
 
 // app.get("/logout", logout);
+
+app.post('/api/auth/register', controller.createUser);
+app.post('/api/auth/login', controller.logIn);
+
 
 app.listen(port, () => console.log(`Helo listening on ${port}`))

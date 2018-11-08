@@ -1,3 +1,51 @@
 .dashboard {
     height: 100vh;
+    background-color: #F2F2F2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    width: 70%;
+    background-color: white;
+    border: 1px solid gray;
+}
+
+.allPosts {
+    width: 70%;
+    height: 300px;
+    background: white;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.post {
+    height: 10vh;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: -2px 2px 10px #403D39;
+    padding: 10px;
+}
+
+.postTitle {
+    font-size: 30px;
+}
+
+.postPic {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    box-shadow: 4px 4px 8px #333;
 }

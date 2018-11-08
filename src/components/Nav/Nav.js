@@ -1,18 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Nav.css';
+import {getUser} from '../../ducks/reducer';
+import axios from 'axios';
 
-function Nav(props){
-    console.log(props);
-        if(props.location.pathname !== "/"){ 
+class Nav extends Component {
+    constructor(){
+        super();
+
+        this.state = {
+
+        }
+    }
+
+    componentDidMount(){
+        axios.post('/api/auth/me').then(response => {
+            this.props.getUser(response.data[0].username, response.data[0].profile_pic)
+        }) 
+    }
+    
+
+    render(){
+        console.log(this.props);
+        if(this.props.location.pathname !== "/"){ 
             return (
             <div className="navBar">
                 <div className="topNav">
                     <div>
-                        <img src={props.profile_pic} alt="Not Available" className="profilePic"/>
-                        <p className="username">{props.username}</p>
+                        <img src={this.props.profile_pic} alt="Not Available" className="profilePic"/>
+                        <p className="username">{this.props.username}</p>
                     </div>
                     <Link to="/dashboard"><FontAwesomeIcon icon="home" className="homeIcon"/></Link>
                     <Link to="/post/:postid"><FontAwesomeIcon icon={['far', 'plus-square']} className="plusIcon"/></Link>
@@ -20,6 +38,7 @@ function Nav(props){
                 <Link to="/"><FontAwesomeIcon icon="power-off" className="logoutIcon"/></Link>
             </div>
             )} else {return null}
+        }
 }
 
 function mapStateToProps(state){
@@ -31,4 +50,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect (mapStateToProps)(Nav);
+export default connect (mapStateToProps, {getUser})(Nav);

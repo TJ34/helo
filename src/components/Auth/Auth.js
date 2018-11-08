@@ -17,13 +17,13 @@ class Auth extends Component {
 
     createUser = (username, password) => {
         axios.post('/api/auth/register', {username, password}).then(response => {
-            this.props.getUser(response.data[0].id, response.data[0].username, response.data[0].profile_pic)
+            this.props.getUser(response.data[0].username, response.data[0].profile_pic)
         }).then(this.props.history.push("/dashboard"))
     }
 
     logIn = (username, password) => {
         axios.post('/api/auth/login', {username, password}).then(response => {
-            this.props.getUser(response.data[0].id, response.data[0].username, response.data[0].profile_pic)
+            this.props.getUser(response.data[0].username, response.data[0].profile_pic)
         }).then(this.props.history.push("/dashboard"))   
     }
 
